@@ -19,6 +19,33 @@ streamlit-code-editor = "^0.1.10"
 [tool.poetry.group.dev.dependencies]
 black = "^23.9.1"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+
+[tool.pdm]
+package-type = "application"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black<24.0.0,>=23.9.1",
+]
+
+[tool.pdm.build]
+includes = ["vanna_streamlit"]
+[project]
+name = "vanna-streamlit"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Michael Booth", email = "michael@databooth.com.au"},
+]
+dependencies = [
+    "streamlit<2.0.0,>=1.26.0",
+    "python-dotenv<2.0.0,>=1.0.0",
+    "kaleido==0.2.1",
+    "vanna[bigquery]<1.0.0,>=0.0.23",
+    "db-dtypes<2.0.0,>=1.1.1",
+    "streamlit-code-editor<1.0.0,>=0.1.10",
+]
+requires-python = ">=3.9,<4.0,!=3.9.7"
+readme = "README.md"
+license = {text = "DataBooth"}
+
